@@ -1,0 +1,14 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PodMonitor
+metadata:
+  name: mycamel2
+spec:
+  podMetricsEndpoints:
+    - bearerTokenSecret:
+        key: ''
+      path: /q/metrics
+      port: http
+  selector:
+    matchLabels:
+      backstage.io/kubernetes-id: mycamel2
+      app.kubernetes.io/instance: mycamel2    
